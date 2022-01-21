@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const props = document.getElementById('postsJSON').dataset.props
-  const json = JSON.parse(props)
-  console.log(props, json)
+  fetch('http://localhost:3000/posts.json')
+    .then((response) => response.json())
+    .then((data) => console.log(data))
 })
