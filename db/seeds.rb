@@ -1,7 +1,11 @@
 def seed
   reset_db
+  create_users
   create_posts
   create_comments
+
+  create_chats_for_users
+  create_messages
 end
 
 def reset_db
@@ -10,10 +14,18 @@ def reset_db
   Rake::Task['db:migrate'].invoke
 end
 
+def create_users
+  100.times do
+    user = User.create!
+    puts "User created with id #{user.id}"
+  end
+end
+
 def create_posts
   10.times do
-    post = Post.create!(title: 'Some title', body: 'Bla bla bla text')
-    puts "Post created with id #{post.id}"
+    user = User.all.sample
+    post = user.posts.create!(title: 'Some title', body: 'Bla bla bla text')
+    puts "Post created with id #{post.id} by user with id #{post.user.id}"
   end
 end
 
@@ -22,8 +34,39 @@ def create_comments
 
   posts.each do |post|
     10.times do
-      comment = post.comments.create!(body: 'Comment body')
-      puts "Comment for post #{comment.post.id} created with id #{comment.id}"
+      user = User.all.sample
+      comment = post.comments.create!(user_id: user.id, body: 'Comment body')
+      puts "Comment for post #{comment.post.id} created with id #{comment.id} by user with id #{comment.user.id}"
+    end
+  end
+end
+
+def create_chats_for_users
+  10.times do
+    users = User.all.sample(2)
+    # users = User.all.select(2)
+    # puts users.class
+    chat = Chat.create!
+    users[0].user_chats.create!(chat_id: chat.id)
+    users[1].user_chats.create!(chat_id: chat.id)
+
+    puts "Chat created with id #{chat.id}"
+    puts "Chat with users #{chat.users[0].id} #{chat.users[1].id}"
+  end
+end
+
+def create_messages
+  chats = Chat.all
+
+  chats.each do |chat|
+    chat_users = chat.users
+
+    10.times do
+      message_one = chat.messages.create!(body: 'test', user_id: chat_users[0].id)
+      message_two = chat.messages.create!(body: 'test', user_id: chat_users[1].id)
+
+      puts "Message with id #{message_one.id} created for chat #{message_one.chat.id} by user #{message_one.user.id}"
+      puts "Message with id #{message_two.id} created for chat #{message_two.chat.id} by user #{message_two.user.id}"
     end
   end
 end
