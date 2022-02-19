@@ -1,0 +1,7 @@
+<h2><%= link_to post.title , post %></h2>
+<p><%= post.body %></p>
+
+<div>
+  <%= link_to 'Edit', edit_post_path(post) if can? :update, post %>
+  <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } if can? :destroy, post %>
+</div>

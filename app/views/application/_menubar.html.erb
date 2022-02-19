@@ -1,0 +1,3 @@
+<%= render 'user_menu' if current_user %>
+<%= render 'admin_menu' if can? :manage, :all %>
+<%= render 'devise' %>

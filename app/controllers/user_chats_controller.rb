@@ -1,4 +1,5 @@
 class UserChatsController < ApplicationController
+  load_and_authorize_resource
   before_action :set_user_chat, only: %i[ show edit update destroy ]
 
   # GET /user_chats or /user_chats.json

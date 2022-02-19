@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
-  resources :user_chats
-  resources :messages
-  resources :chats
+  devise_for :users
+
   namespace :api do
     namespace :v1 do
       get 'posts/:id/comments', to: 'comments#index', as: 'post_comments'
@@ -10,7 +9,11 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :user_chats
+  resources :messages
+  resources :chats
   resources :comments
   resources :posts
+
   root 'posts#index'
 end

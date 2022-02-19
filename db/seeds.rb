@@ -15,9 +15,22 @@ def reset_db
 end
 
 def create_users
-  100.times do
-    user = User.create!
+  i = 0
+
+  10.times do
+    user_data = {
+      email: "user_#{i}@email.com",
+      password: 'testtest'
+    }
+
+    if i == 0
+      user_data[:email] = "admin@email.com"
+      user_data[:admin] = true
+    end
+
+    user = User.create!(user_data)
     puts "User created with id #{user.id}"
+    i += 1
   end
 end
 
