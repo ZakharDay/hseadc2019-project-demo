@@ -1,0 +1,10 @@
+<div class="message <%= message.user == current_user ? 'currentUser' : '' %>">
+  <div>
+    <%= message.user.email %>
+  </div>
+
+  <div>
+    <%= message.body %>
+  </div>
+
+</div>

@@ -7,17 +7,17 @@ class Api::V1::CommentsController < Api::V1::ApplicationController
   end
 
   def create
-    sleep 20
+    # sleep 20
 
     post = Post.find(params[:id])
-    comment = post.comments.create!(body: params[:comment][:body])
+    comment = post.comments.create!(body: params[:comment][:body], user: current_user)
 
     render json: { id: comment.id, tempId: params[:tempId] }
   end
 
   def update
-    sleep 20
-    
+    # sleep 20
+
     comment = Comment.find(params[:id])
     comment.update_attribute(:body, params[:comment][:body])
 

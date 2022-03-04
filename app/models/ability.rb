@@ -14,18 +14,9 @@ class Ability
       can :index, Welcome
       can :read, Post
       can [:update, :destroy], Post, user: user
-      # can :read, Chat, user: user
       can :index, Chat
 
       can :show, Chat, Chat.all do |chat|
-        # chat_users = chat.users
-        #
-        # if chat_users.include?(user)
-        #   true
-        # else
-        #   false
-        # end
-
         chat.users.include?(user) ? true : false
       end
     else

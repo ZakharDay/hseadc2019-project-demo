@@ -9,6 +9,7 @@ class ChatsController < ApplicationController
 
   # GET /chats/1 or /chats/1.json
   def show
+    @messages = @chat.messages
   end
 
   # GET /chats/new
