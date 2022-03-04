@@ -4,7 +4,7 @@ class ChatsController < ApplicationController
 
   # GET /chats or /chats.json
   def index
-    @chats = Chat.all
+    @chats = current_user.chats
   end
 
   # GET /chats/1 or /chats/1.json

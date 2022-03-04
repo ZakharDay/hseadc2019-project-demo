@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'welcome/index'
   devise_for :users
 
   namespace :api do
@@ -15,5 +16,5 @@ Rails.application.routes.draw do
   resources :comments
   resources :posts
 
-  root 'posts#index'
+  root 'welcome#index'
 end

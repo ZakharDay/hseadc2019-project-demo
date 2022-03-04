@@ -11,10 +11,25 @@ class Ability
     if user && user.admin?
       can :manage, :all
     elsif user
+      can :index, Welcome
       can :read, Post
       can [:update, :destroy], Post, user: user
+      # can :read, Chat, user: user
+      can :index, Chat
+
+      can :show, Chat, Chat.all do |chat|
+        # chat_users = chat.users
+        #
+        # if chat_users.include?(user)
+        #   true
+        # else
+        #   false
+        # end
+
+        chat.users.include?(user) ? true : false
+      end
     else
-      can :index, Post
+      can :index, Welcome
     end
 
     # The first argument to `can` is the action you are giving the user
