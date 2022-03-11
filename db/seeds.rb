@@ -85,3 +85,32 @@ def create_messages
 end
 
 seed
+
+# ARQI Methods
+# where
+# find
+# group
+# includes
+# joins
+# limit
+# select
+
+# Array Methods
+# collect
+# reject
+# compact
+# delete
+# delete_at
+# delete_if
+# flatten
+# join
+# replace
+# reverse
+# sample
+# shift
+# slice
+# sort
+# uniq
+# pop
+# push
+# <<
