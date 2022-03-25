@@ -1,0 +1,14 @@
+ru:
+  activerecord:
+    models:
+      post: Пост
+    attributes:
+      post:
+        cover: 'Обложка'
+        title: 'Заголовок'
+        body: 'Текст поста'
+  hello: 'Привет!'
+  menu:
+    home: 'Главная'
+    posts: 'Посты'
+    chats: 'Сообщения'

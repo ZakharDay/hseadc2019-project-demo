@@ -1,3 +1,4 @@
+<%= image_tag post.cover.url(:thumb) if post.cover.file != nil %>
 <h2><%= link_to post.title , post %></h2>
 <p><%= post.body %></p>
 

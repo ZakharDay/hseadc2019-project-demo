@@ -12,9 +12,9 @@ class Ability
       can :manage, :all
     elsif user
       can :index, Welcome
-      can :read, Post
+      can [:read, :new, :create], Post
       can [:update, :destroy], Post, user: user
-      can :index, Chat
+      can [:index, :test], Chat
 
       can :show, Chat, Chat.all do |chat|
         chat.users.include?(user) ? true : false

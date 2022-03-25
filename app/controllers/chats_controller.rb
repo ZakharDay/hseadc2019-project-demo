@@ -12,6 +12,11 @@ class ChatsController < ApplicationController
     @messages = @chat.messages
   end
 
+  def test
+    ActionCable.server.broadcast 'chat_channel', 'test 3'
+    render json: {this_is_json: 'answer'}
+  end
+
   # GET /chats/new
   def new
     @chat = Chat.new

@@ -12,7 +12,10 @@ Rails.application.routes.draw do
 
   resources :user_chats
   resources :messages
+
+  get 'chats/test', to: 'chats#test', as: 'chats_test'
   resources :chats
+
   resources :comments
   resources :posts
 

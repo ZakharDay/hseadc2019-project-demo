@@ -8,6 +8,10 @@
 
 <p id="notice"><%= notice %></p>
 
+<%= image_tag @post.cover_url, width: 500 %>
+
+<figure class="postCover" style="background-image: url('<%= @post.cover_url %>')"></figure>
+
 <p>
   <strong>Title:</strong>
   <%= @post.title %>
