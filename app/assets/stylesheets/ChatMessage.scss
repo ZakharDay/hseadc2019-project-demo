@@ -1,0 +1,22 @@
+.ChatMessage {
+  position: relative;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 10px;
+  color: white;
+  background: blue;
+
+  &.currentUser {
+    background: lightgrey;
+    color: black;
+    align-self: flex-end;
+  }
+
+  .name {
+    position: absolute;
+    top: -18px;
+    left: 10px;
+    font-size: 10px;
+    color: black;
+  }
+}

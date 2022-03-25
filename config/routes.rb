@@ -7,6 +7,9 @@ Rails.application.routes.draw do
       get 'posts/:id/comments', to: 'comments#index', as: 'post_comments'
       post 'posts/:id/comments/create', to: 'comments#create', as: 'create_post_comment'
       put 'comments/:id', to: 'comments#update', as: 'update_post_comment'
+
+      get 'chats/:id/messages', to: 'chats#messages', as: 'chat_messages'
+      post 'chats/:id/messages/send', to: 'chats#send_message', as: 'send_message'
     end
   end
 

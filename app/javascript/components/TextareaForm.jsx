@@ -1,30 +1,30 @@
 import React, { PureComponent } from 'react'
 
-export default class CommentForm extends PureComponent {
+export default class TextareaForm extends PureComponent {
   constructor(props) {
     super(props)
-    this.commentField = React.createRef()
+    this.textarea = React.createRef()
   }
 
   handleSubmit = () => {
     const { handleCreate } = this.props
-    const text = this.commentField.current.value
+    const text = this.textarea.current.value
 
     if (text != '') {
       handleCreate(text)
-      this.commentField.current.value = ''
+      this.textarea.current.value = ''
     }
   }
 
   render() {
-    return (
-      <div className="CommentForm">
-        <h2>Your comment</h2>
+    const { buttonText } = this.props
 
-        <textarea ref={this.commentField} />
+    return (
+      <div className="TextareaForm">
+        <textarea ref={this.textarea} />
 
         <div className="submitButton" onClick={this.handleSubmit}>
-          Comment
+          {buttonText}
         </div>
       </div>
     )

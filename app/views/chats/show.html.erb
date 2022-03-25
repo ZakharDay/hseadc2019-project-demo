@@ -1,12 +1,14 @@
+<%
+  props = {
+    currentUserId: current_user.id,
+    chatUrl: api_v1_chat_messages_url(@chat),
+    sendMessageUrl: api_v1_send_message_url(@chat)
+  }
+%>
+
 <p id="notice"><%= notice %></p>
 
 <%= link_to 'Edit', edit_chat_path(@chat) %> |
 <%= link_to 'Back', chats_path %>
 
-<div id="testWebsocket">
-  Test websocket
-</div>
-
-<div class="messages">
-  <%= render @messages %>
-</div>
+<div id="chatWrapper" data-props="<%= props.to_json %>"></div>

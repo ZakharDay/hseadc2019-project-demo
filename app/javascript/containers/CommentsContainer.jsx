@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Comment from '../components/Comment'
-import CommentForm from '../components/CommentForm'
+import TextareaForm from '../components/TextareaForm'
 
 export default class CommentsContainer extends Component {
   constructor(props) {
@@ -182,7 +182,9 @@ export default class CommentsContainer extends Component {
     return (
       <div className="CommentsContainer">
         {this.renderComments()}
-        <CommentForm handleCreate={this.handleCreate} />
+
+        <h2>Your comment</h2>
+        <TextareaForm buttonText="Comment" handleCreate={this.handleCreate} />
       </div>
     )
   }
