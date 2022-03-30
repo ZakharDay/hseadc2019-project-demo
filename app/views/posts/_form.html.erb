@@ -11,6 +11,17 @@
     </div>
   <% end %>
 
+  <%
+    categories = [['design', 'design'], ['coding', 'coding'], ['fashion', 'fashion']]
+  %>
+
+  <div class="field">
+    <%= form.label :category_list %>
+    <%#= form.text_area :category_list %>
+    <%= form.select :category_list, categories, include_blank: true %>
+    <%#= select_tag "category_list", options_from_collection_for_select(categories) %>
+  </div>
+
   <div class="field">
     <%= form.label :cover %>
     <%= form.file_field :cover %>
@@ -24,6 +35,11 @@
   <div class="field">
     <%= form.label :body %>
     <%= form.text_area :body %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tag_list %>
+    <%= form.text_area :tag_list %>
   </div>
 
   <div class="actions">

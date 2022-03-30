@@ -12,7 +12,7 @@ class Ability
       can :manage, :all
     elsif user
       can :index, Welcome
-      can [:read, :new, :create], Post
+      can [:read, :new, :create, :tag], Post
       can [:update, :destroy], Post, user: user
       can [:index, :test], Chat
 

@@ -8,6 +8,10 @@
 
 <p id="notice"><%= notice %></p>
 
+<div>
+  <%= @post.category_list %>
+</div>
+
 <%= image_tag @post.cover_url, width: 500 %>
 
 <figure class="postCover" style="background-image: url('<%= @post.cover_url %>')"></figure>
@@ -24,6 +28,8 @@
 
 <h2>Comments</h2>
 <div id="postComments" data-props="<%= props.to_json %>"></div>
+
+<%= @post.tag_list %>
 
 <div>
   <%= link_to 'Edit', edit_post_path(@post) if can? :update, @post %>

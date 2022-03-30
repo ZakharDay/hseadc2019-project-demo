@@ -2,6 +2,16 @@ class Api::V1::ChatsController < Api::V1::ApplicationController
 
   def messages
     chat = Chat.find(params[:id])
+    
+    # messages = chat.messages.as_json
+    #
+    # messages.map do |message|
+    #   message[:currentUser] = message[:userId] == current_user.id
+    #   message
+    # end
+    #
+    # render json: { messages: messages }
+
     render json: { messages: chat.messages }
   end
 

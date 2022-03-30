@@ -18,6 +18,8 @@ export default class ChatContainer extends PureComponent {
     fetch(chatUrl)
       .then((response) => response.json())
       .then((data) => {
+        console.log(data)
+
         this.setState({
           messages: data.messages
         })

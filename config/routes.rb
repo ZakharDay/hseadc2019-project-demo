@@ -20,6 +20,8 @@ Rails.application.routes.draw do
   resources :chats
 
   resources :comments
+
+  get 'posts_by_tag/:name', to: 'posts#tag', as: 'posts_by_tag'
   resources :posts
 
   root 'welcome#index'

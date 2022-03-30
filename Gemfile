@@ -34,6 +34,7 @@ gem 'carrierwave', '~> 2.0'
 gem 'mini_magick'
 gem 'russian'
 gem 'redis'
+gem 'acts-as-taggable-on', '~> 9.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
