@@ -1,0 +1,10 @@
+<%
+  category_ids = Tagging.where(context: 'categories').collect { |tagging| tagging.tag_id }.uniq
+  tags = Tag.find(category_ids)
+%>
+
+<div>
+  <% tags.each do |tag| %>
+    <%= link_to tag.name, posts_by_tag_path(name: tag.name) %>
+  <% end %>
+</div>
